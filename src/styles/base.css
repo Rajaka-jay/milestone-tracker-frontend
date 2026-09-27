@@ -1,0 +1,82 @@
+:root {
+  color-scheme: light;
+  --font: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --primary: #1F5FD8;
+  --primary-600: #1A4FB4;
+  --primary-100: #D9E5FB;
+  --primary-50: #EEF3FD;
+
+  --ink: #1F2933;
+  --ink-2: #3E4C59;
+  --muted: #616E7C;
+  --line: #E1E6EC;
+  --line-strong: #C7CFD9;
+  --bg: #F5F7FA;
+  --surface: #FFFFFF;
+
+  --green: #1F7A4A;
+  --green-bg: #E6F5EC;
+  --green-solid: #2F9E63;
+  --amber: #8A5300;
+  --amber-bg: #FEF3D6;
+  --red: #A62626;
+  --red-bg: #FDECEC;
+  --gray-bg: #EDF0F4;
+
+  --radius: 8px;
+  --radius-sm: 6px;
+  --shadow-pop: 0 10px 28px rgba(31, 41, 51, 0.16);
+
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 68px;
+  --topbar-h: 60px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { height: 100%; scroll-padding-top: calc(var(--topbar-h) + var(--safe-top) + 12px); }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+img, svg { display: block; max-width: 100%; }
+svg { flex-shrink: 0; }
+code { font-size: 0.92em; background: var(--gray-bg); padding: 1px 5px; border-radius: 4px; }
+
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.input:focus-visible, .search__input:focus-visible { outline: none; }
+
+.muted { color: var(--muted); font-size: 14px; }
+.center { text-align: center; }
+.is-overdue { color: var(--red) !important; font-weight: 500; }
+.rot { transform: rotate(180deg); }
+
+.link { color: var(--primary); text-decoration: none; font-weight: 500; }
+.link:hover { text-decoration: underline; }
+.link--arrow { display: inline-flex; align-items: center; gap: 4px; }
+.link-btn { background: none; border: 0; padding: 0; color: var(--primary); font-weight: 500; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+.link-btn:hover:not(:disabled) { text-decoration: underline; }
+.link-btn:disabled { color: var(--muted); cursor: default; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.9s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .spin { animation-duration: 3s; }
+  * { transition: none !important; }
+}

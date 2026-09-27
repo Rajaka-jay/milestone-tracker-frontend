@@ -1,0 +1,38 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Unit and integration tests
+        run: npm test
+      - name: Production build
+        run: npm run build
+        env:
+          VITE_API_URL: /api
+          VITE_USE_MOCK: 'false'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: dist
+
+  docker:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build container image
+        run: docker build -t milestone-tracker-frontend:${{ github.sha }} .

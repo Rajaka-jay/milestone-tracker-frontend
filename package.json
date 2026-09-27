@@ -1,0 +1,37 @@
+{
+  "name": "student-project-milestone-tracker-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "ci": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "recharts": "^2.13.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.12.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.11.0",
+    "jsdom": "^25.0.1",
+    "vite": "^5.4.8",
+    "vitest": "^2.1.2"
+  }
+}
